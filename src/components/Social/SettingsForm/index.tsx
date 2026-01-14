@@ -7,6 +7,21 @@ const SettingsForm: React.FC = () => {
   // Separate states for profile picture and cover photo
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [coverPhoto, setCoverPhoto] = useState<File | null>(null);
+  const [firstName, setFirstName] = useState<string>('Alice');
+  const [lastName, setLastName] = useState<string>('Johnson');
+  const [emailValue, setEmailValue] = useState<string>('johnson@11f.uk');
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('profile');
+      if (saved) {
+        const p = JSON.parse(saved);
+        if (p.firstName) setFirstName(p.firstName);
+        if (p.lastName) setLastName(p.lastName);
+        if (p.email) setEmailValue(p.email);
+      }
+    } catch (e) {}
+  }, []);
 
   const handleProfilePictureChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -60,6 +75,9 @@ const SettingsForm: React.FC = () => {
         if (!res.ok) throw new Error('Failed')
         const json = await res.json()
         console.log('saved', json)
+        try {
+          localStorage.setItem('profile', JSON.stringify({ firstName, lastName, email: emailValue }));
+        } catch (e) {}
         alert('Social settings saved')
       })
       .catch((err) => {
@@ -87,9 +105,10 @@ const SettingsForm: React.FC = () => {
                     </label>
                     <input
                       name="firstName"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                       type="text"
                       className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
-                      defaultValue="Alice"
                     />
                   </div>
 
@@ -99,9 +118,10 @@ const SettingsForm: React.FC = () => {
                     </label>
                     <input
                       name="lastName"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
-                      defaultValue="Johnson"
                     />
                   </div>
 
@@ -111,9 +131,10 @@ const SettingsForm: React.FC = () => {
                     </label>
                     <input
                       name="email"
+                      value={emailValue}
+                      onChange={(e) => setEmailValue(e.target.value)}
                       type="text"
                       className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
-                      defaultValue="johnson@11f.uk"
                     />
                   </div>
 
