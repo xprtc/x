@@ -28,10 +28,30 @@ const AccountSettingsForm: React.FC = () => {
     e.preventDefault();
     if (!formRef.current) return;
     const formData = new FormData(formRef.current);
-    const payload = Object.fromEntries(formData.entries());
-    console.log("Account settings submit:", payload);
-    // TODO: call API to persist settings
-    alert("Profile updated (demo)");
+    const firstName = (formData.get('firstName') as string) || '';
+    const lastName = (formData.get('lastName') as string) || '';
+    const email = (formData.get('email') as string) || '';
+
+    const payload = {
+      email,
+      name: `${firstName} ${lastName}`.trim(),
+    };
+
+    fetch('/api/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Failed to save');
+        const json = await res.json();
+        console.log('saved', json);
+        alert('Profile saved');
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Failed to save profile');
+      });
   };
 
   return (
@@ -48,6 +68,7 @@ const AccountSettingsForm: React.FC = () => {
               First Name
             </label>
             <input
+              name="firstName"
               type="text"
               className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
               defaultValue="Olivia"
@@ -59,6 +80,7 @@ const AccountSettingsForm: React.FC = () => {
               Last Name
             </label>
             <input
+              name="lastName"
               type="text"
               className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
               defaultValue="John"
@@ -70,6 +92,7 @@ const AccountSettingsForm: React.FC = () => {
               Email Address
             </label>
             <input
+              name="email"
               type="text"
               className="h-[55px] rounded-md text-black dark:text-white border border-gray-200 dark:border-[#172036] bg-white dark:bg-[#0c1427] px-[17px] block w-full outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:border-primary-500"
               defaultValue="olivia@11f.uk"
