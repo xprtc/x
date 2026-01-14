@@ -66,24 +66,36 @@ const SettingsForm: React.FC = () => {
       name: `${firstName} ${lastName}`.trim(),
     };
 
-    fetch('/api/settings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then(async (res) => {
-        if (!res.ok) throw new Error('Failed')
-        const json = await res.json()
-        console.log('saved', json)
+    (async () => {
+      try {
+        const res = await fetch('/api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          console.error('server error', res.status, json);
+          try {
+            localStorage.setItem('profile', JSON.stringify({ firstName, lastName, email: emailValue }));
+          } catch (e) {}
+          alert('Saved locally (server error).');
+          return;
+        }
+
+        console.log('saved', json);
         try {
           localStorage.setItem('profile', JSON.stringify({ firstName, lastName, email: emailValue }));
         } catch (e) {}
-        alert('Social settings saved')
-      })
-      .catch((err) => {
-        console.error(err)
-        alert('Failed to save social settings')
-      })
+        alert('Social settings saved');
+      } catch (err) {
+        console.error('network error', err);
+        try {
+          localStorage.setItem('profile', JSON.stringify({ firstName, lastName, email: emailValue }));
+        } catch (e) {}
+        alert('Saved locally (network error).');
+      }
+    })();
   };
 
   return (
