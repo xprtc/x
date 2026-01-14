@@ -1,0 +1,73 @@
+// Prisma Schema für professionelles CRM-System
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum JourneyStage {
+  INTERESSENT
+  KUNDE
+  VIP
+  AMBASSADOR
+}
+
+enum ActivityType {
+  EMAIL
+  CALL
+  MEETING
+  NOTE
+  TASK
+}
+
+model Client {
+  id           String        @id @default(cuid())
+  companyName  String?
+  firstName    String
+  lastName     String
+  email        String        @unique
+  phone        String?
+  city         String
+  address      String?
+  zipCode      String?
+  country      String        @default("Deutschland")
+  journeyStage JourneyStage  @default(INTERESSENT)
+  statusText   String
+  notes        String?       @db.Text
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  
+  activities   Activity[]
+  
+  @@index([email])
+  @@index([journeyStage])
+  @@index([createdAt])
+}
+
+model Activity {
+  id          String       @id @default(cuid())
+  clientId    String
+  type        ActivityType
+  title       String
+  description String?      @db.Text
+  date        DateTime     @default(now())
+  createdBy   String
+  createdAt   DateTime     @default(now())
+  
+  client      Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  @@index([clientId])
+  @@index([date])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
