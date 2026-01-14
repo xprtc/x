@@ -9,14 +9,15 @@ const Footer: React.FC = () => {
 
       <footer className="bg-white dark:bg-[#0c1427] rounded-t-md px-[20px] md:px-[25px] py-[15px] md:py-[20px] text-center">
         <p>
-          © <span className="text-purple-500">Trezo</span> is Proudly Owned by{" "}
+          © 11F by{" "}
           <a
-            href="https://envytheme.com/"
+            href="https://exoertico.com"
             target="_blank"
             className="text-primary-500 transition-all hover:underline"
           >
-            EnvyTheme
+            exoertico.com
           </a>
+          {" "}| Rastoder IT Consulting
         </p>
       </footer>
     </>
