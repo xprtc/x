@@ -9,12 +9,28 @@ const ProfileMenu: React.FC = () => {
   const pathname = usePathname();
 
   const [active, setActive] = useState<boolean>(false);
+  const [firstName, setFirstName] = useState<string>("Olivia");
+  const [lastName, setLastName] = useState<string>("John");
   const dropdownRef = useRef<HTMLDivElement>(null); // Ref for the dropdown container
  
   const handleDropdownToggle = () => {
     setActive((prevState) => !prevState);
   };
     
+  // Load profile from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('profile');
+      if (saved) {
+        const p = JSON.parse(saved);
+        if (p.firstName) setFirstName(p.firstName);
+        if (p.lastName) setLastName(p.lastName);
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
+
   // Handle clicks outside the dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,7 +71,7 @@ const ProfileMenu: React.FC = () => {
           height={35}
         />
         <span className="block font-semibold text-[0px] lg:text-base">
-          Olivia
+          {firstName}
         </span>
         <i className="ri-arrow-down-s-line text-[15px] absolute ltr:-right-[3px] rtl:-left-[3px] top-1/2 -translate-y-1/2 mt-px"></i>
       </button>
@@ -72,7 +88,7 @@ const ProfileMenu: React.FC = () => {
             />
             <div>
               <span className="block text-black dark:text-white font-medium">
-                Olivia John
+                {firstName} {lastName}
               </span>
               <span className="block text-xs">Marketing Manager</span>
             </div>

@@ -24,7 +24,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ toggleActive }) => {
       <div className="sidebar-area bg-white dark:bg-[#0c1427] fixed z-[7] top-0 h-screen transition-all rounded-r-md">
         <div className="logo bg-white dark:bg-[#0c1427] border-b border-gray-100 dark:border-[#172036] px-[25px] pt-[19px] pb-[15px] absolute z-[2] right-0 top-0 left-0">
           <Link
-            href="/dashboard/ecommerce/"
+            href="/dashboard/crm/"
             className="transition-none relative flex items-center outline-none"
           >
             <Image
@@ -34,7 +34,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ toggleActive }) => {
               height={26}
             />
             <span className="font-bold text-black dark:text-white relative ltr:ml-[8px] rtl:mr-[8px] top-px text-xl">
-              11F OS
+              11F CRM
             </span>
           </Link>
 
@@ -96,6 +96,17 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ toggleActive }) => {
                         }`}
                       >
                         CRM
+                      </Link>
+                    </li>
+
+                    <li className="sidemenu-item mb-[4px] last:mb-0">
+                      <Link
+                        href="/dashboard/agentic/"
+                        className={`sidemenu-link rounded-md flex items-center relative transition-all font-medium text-gray-500 dark:text-gray-400 py-[9px] ltr:pl-[38px] ltr:pr-[30px] rtl:pr-[38px] rtl:pl-[30px] hover:text-primary-500 hover:bg-primary-50 w-full text-left dark:hover:bg-[#15203c] ${
+                          pathname === "/dashboard/agentic/" ? "active" : ""
+                        }`}
+                      >
+                        Agentic
                       </Link>
                     </li>
 

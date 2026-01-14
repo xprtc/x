@@ -12,6 +12,8 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
+    "agentic:worker": "tsx src/worker/agentic-worker.ts",
+    "vercel:build": "npx prisma migrate deploy && npx prisma generate && next build",
     "postinstall": "prisma generate"
   },
   "dependencies": {
