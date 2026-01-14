@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type Lead = {
   id: number;
@@ -110,6 +111,7 @@ const initialLeads: Lead[] = [
 const ITEMS_PER_PAGE = 5;
 
 const RecentLeads: React.FC = () => {
+  const router = useRouter();
   const [selectedOption, setSelectedOption] = useState<string>("This Day");
   const [leads, setLeads] = useState<Lead[]>(initialLeads);
   const [currentPage, setCurrentPage] = useState(1);
@@ -298,6 +300,7 @@ const RecentLeads: React.FC = () => {
                         <div className="relative group">
                           <button
                             type="button"
+                            onClick={() => router.push(`/crm/contacts`)}
                             className="text-primary-500 leading-none"
                           >
                             <i className="material-symbols-outlined !text-md">

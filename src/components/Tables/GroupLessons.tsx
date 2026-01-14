@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type Lesson = {
   id: number;
@@ -97,6 +98,7 @@ const initialLessons: Lesson[] = [
 const ITEMS_PER_PAGE = 4;
 
 const GroupLessons: React.FC = () => {
+  const router = useRouter();
   const [lessons] = useState<Lesson[]>(initialLessons);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedOption, setSelectedOption] = useState<string>("Last 6 Months");
@@ -195,14 +197,14 @@ const GroupLessons: React.FC = () => {
                     </td>
 
                     <td className="ltr:text-right rtl:text-left whitespace-nowrap px-[20px] py-[17px] border-b border-gray-100 dark:border-[#172036] ltr:first:pl-0 ltr:last:pr-0 rtl:first:pr-0 rtl:last:pl-0">
-                      <a
-                        href="#"
+                      <button
+                        onClick={() => router.push('/lms/lesson-preview')}
                         className="inline-block relative w-[36px] h-[36px] text-center text-gray-500 dark:text-gray-400 transition-all border border-gray-100 dark:border-[#172036] rounded-full hover:bg-primary-500 hover:border-primary-500 hover:text-white"
                       >
                         <i className="material-symbols-outlined absolute left-0 right-0 !text-lg top-1/2 -translate-y-1/2">
                           arrow_outward
                         </i>
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 ))}
