@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface MenuItem {
   id: string;
@@ -13,6 +14,7 @@ interface MenuItem {
 }
 
 const MenusTable: React.FC = () => {
+  const router = useRouter();
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
@@ -311,12 +313,12 @@ const MenusTable: React.FC = () => {
                             alt={item.name}
                           />
                         </div>
-                        <a
-                          href="dish-details.html"
+                        <button
+                          onClick={() => router.push(`/restaurant/menus/${item.id}`)}
                           className="font-semibold inline-block transition-all hover:text-primary-500"
                         >
                           {item.name}
-                        </a>
+                        </button>
                       </div>
                     </td>
                     <td className="ltr:text-left rtl:text-right whitespace-nowrap px-[20px] py-[14px] ltr:first:pl-0 rtl:first:pr-0 border-b border-primary-50 dark:border-[#172036] ltr:last:pr-0 rtl:last:pl-0">
@@ -333,6 +335,7 @@ const MenusTable: React.FC = () => {
                       <div className="flex items-center gap-[9px]">
                         <button
                           type="button"
+                          onClick={() => router.push(`/restaurant/menus/${item.id}`)}
                           className="text-primary-500 leading-none custom-tooltip"
                           id="customTooltip"
                           data-text="View"

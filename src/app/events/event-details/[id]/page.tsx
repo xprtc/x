@@ -1,8 +1,7 @@
- 
 import EventDetailsContent from "@/components/Events/EventDetailsContent";
 import Link from "next/link";
 
-export default function Page() {
+export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <div className="mb-[25px] md:flex items-center justify-between">

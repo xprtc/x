@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Dynamic invoices data
 const invoices = [
@@ -230,6 +231,8 @@ const invoices = [
 ];
 
 const InvoicesTable: React.FC = () => {
+  const router = useRouter();
+  
   // selectedOption state
   const [selectedOption, setSelectedOption] = useState<string>("This Week");
 
@@ -391,14 +394,15 @@ const InvoicesTable: React.FC = () => {
 
                     <td className="ltr:text-left rtl:text-right whitespace-nowrap px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036] ltr:first:border-l ltr:last:border-r rtl:first:border-r rtl:last:border-l">
                       <div className="flex items-center gap-[9px]">
-                        <Link
-                          href={invoice.viewLink}
+                        <button
+                          type="button"
+                          onClick={() => router.push(`/invoices/${invoice.id}`)}
                           className="text-primary-500 leading-none custom-tooltip"
                         >
                           <i className="material-symbols-outlined !text-md">
                             visibility
                           </i>
-                        </Link>
+                        </button>
                         <button
                           type="button"
                           className="text-gray-500 dark:text-gray-400 leading-none custom-tooltip"
