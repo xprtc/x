@@ -20,8 +20,8 @@ const Welcome: React.FC = () => {
                   Hello Olivia ✋
                 </span>
                 <h1 className="!text-white !text-2xl !mb-0 !font-normal">
-                  Welcome To Trezo –{" "}
-                  <strong className="font-black">Your Store</strong>
+                  Welcome To Your CRM –{" "}
+                  <strong className="font-black">Rastoder IT Consulting</strong>
                 </h1>
               </div>
             </div>
