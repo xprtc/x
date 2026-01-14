@@ -7,20 +7,20 @@ cd /Users/sbrxprtc/Downloads/themeforest-S2nHEhgN-trezo-multiframework-admin-das
 
 git init
 git add .
-git commit -m "Initial commit: Trezo CRM Web OS"
+git commit -m "Initial commit: 11F OS CRM Web OS"
 git branch -M main
 ```
 
 **GitHub Repository erstellen:**
 1. Gehe zu https://github.com/new
-2. Name: `trezo-crm` (oder eigener Name)
+2. Name: `11f-crm` (oder eigener Name)
 3. Private oder Public (je nach Lizenz)
 4. **NICHT** README/gitignore/license hinzufügen (haben wir schon)
 5. **Create repository** klicken
 
 ```bash
 # Füge deine GitHub Repo-URL ein:
-git remote add origin https://github.com/DEIN-USERNAME/trezo-crm.git
+git remote add origin https://github.com/DEIN-USERNAME/11f-crm.git
 git push -u origin main
 ```
 
@@ -37,7 +37,7 @@ Host: 127.0.0.1
 Port: 3306
 Username: u123456789_user
 Password: deinpasswort
-Database: u123456789_trezo
+Database: u123456789_11f
 ```
 
 ## 3️⃣ Prisma für MySQL anpassen
@@ -56,7 +56,7 @@ datasource db {
 ```bash
 # Erstelle .env Datei
 cat > .env << 'EOF'
-DATABASE_URL="mysql://u123456789_user:deinpasswort@127.0.0.1:3306/u123456789_trezo?ssl-mode=REQUIRED"
+DATABASE_URL="mysql://u123456789_user:deinpasswort@127.0.0.1:3306/u123456789_11f?ssl-mode=REQUIRED"
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 EOF
 
@@ -85,10 +85,10 @@ Wenn Prisma Studio sich öffnet → ✅ Perfekt!
 1. Gehe zu https://vercel.com
 2. **Sign Up** mit GitHub Account
 3. **Add New** → **Project**
-4. Wähle dein `trezo-crm` Repository
+4. Wähle dein `11f-crm` Repository
 5. **Environment Variables** hinzufügen:
    ```
-   DATABASE_URL=mysql://u123456789_user:pass@127.0.0.1:3306/u123456789_trezo?ssl-mode=REQUIRED
+  DATABASE_URL=mysql://u123456789_user:pass@127.0.0.1:3306/u123456789_11f?ssl-mode=REQUIRED
    NEXT_PUBLIC_APP_URL=https://dein-projekt.vercel.app
    ```
 6. **Deploy** klicken

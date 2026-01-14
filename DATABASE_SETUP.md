@@ -4,7 +4,7 @@
 
 ### Option A: Lokal (Docker - Empfohlen für Entwicklung)
 ```bash
-docker run --name trezo-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=trezo_crm -p 5432:5432 -d postgres:16
+docker run --name 11f-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=11f_crm -p 5432:5432 -d postgres:16
 ```
 
 ### Option B: Cloud (Produktion)

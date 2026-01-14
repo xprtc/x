@@ -19,7 +19,7 @@ const FaqContent: React.FC = () => {
               Frequently Asked Questions
             </h3>
             <p className="leading-[1.7]">
-              Trezo offers customization options to tailor the platform to your
+              11F OS offers customization options to tailor the platform to your
               team unique requirements. You can customize workflows,
               templates, and dashboards to align with your processes.
             </p>
@@ -34,7 +34,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(0)}
               >
-                What is Trezo?
+                What is 11F OS?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -44,7 +44,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -59,7 +59,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(1)}
               >
-                What features does Trezo offer?
+                What features does 11F OS offer?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -69,7 +69,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -98,7 +98,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(2)}
               >
-                How can Trezo benefit my team?
+                How can 11F OS benefit my team?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -108,7 +108,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -123,7 +123,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(3)}
               >
-                Is Trezo suitable for small businesses?
+                Is 11F OS suitable for small businesses?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -133,7 +133,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -148,7 +148,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(4)}
               >
-                Can I customize Trezo to fit my team specific needs?
+                Can I customize 11F OS to fit my team's specific needs?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -158,7 +158,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -173,7 +173,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(5)}
               >
-                Is Trezo cloud-based or on-premises?
+                Is 11F OS cloud-based or on-premises?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -183,7 +183,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -223,7 +223,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(7)}
               >
-                How secure is Trezo?
+                How secure is 11F OS?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 
@@ -233,7 +233,7 @@ const FaqContent: React.FC = () => {
                 }`}
               >
                 <p className="text-gray-500 dark:text-gray-400 leading-[1.7]">
-                  Trezo is a comprehensive project management software designed
+                  11F OS is a comprehensive project management platform designed
                   to help teams streamline their workflow, collaborate
                   effectively, and achieve project success.
                 </p>
@@ -248,7 +248,7 @@ const FaqContent: React.FC = () => {
                 type="button"
                 onClick={() => toggleAccordion(8)}
               >
-                Can I try Trezo before purchasing?
+                Can I try 11F OS before purchasing?
                 <i className="ri-arrow-down-s-line absolute top-1/2 -translate-y-1/2 ltr:right-[20px] rtl:left-[20px] md:ltr:right-[25px] md:rtl:left-[25px] text-[20px]"></i>
               </button>
 

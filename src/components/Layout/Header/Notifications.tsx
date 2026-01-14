@@ -28,7 +28,7 @@ const notifications: Notification[] = [
     icon: "person",
     color: "text-[#39b2de]",
     message:
-      '<strong className="font-semibold">A new user</strong> added in Trezo',
+      '<strong className="font-semibold">A new user</strong> added in 11F OS',
     time: "3 hrs ago",
     link: "/notifications",
     isNew: true,

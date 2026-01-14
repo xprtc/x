@@ -1,6 +1,6 @@
 # HOSTINGER DEPLOYMENT ANLEITUNG
 
-Diese Anleitung zeigt dir Schritt-für-Schritt, wie du deine Trezo CRM App auf Hostinger hostest.
+Diese Anleitung zeigt dir Schritt-für-Schritt, wie du deine 11F OS CRM App auf Hostinger hostest.
 
 ## 📝 Voraussetzungen
 
@@ -29,7 +29,7 @@ Hostname: 127.0.0.1 (oder localhost)
 Port: 3306
 Username: u123456789_dbuser
 Password: [dein gewähltes Passwort]
-Datenbankname: u123456789_trezo_crm
+Datenbankname: u123456789_11f_crm
 ```
 
 **WICHTIG:** Speichere diese Daten sicher!
@@ -50,13 +50,13 @@ datasource db {
 Deine `DATABASE_URL` für Hostinger:
 
 ```env
-DATABASE_URL="mysql://u123456789_dbuser:DeinPasswort@127.0.0.1:3306/u123456789_trezo_crm?ssl-mode=REQUIRED"
+DATABASE_URL="mysql://u123456789_dbuser:DeinPasswort@127.0.0.1:3306/u123456789_11f_crm?ssl-mode=REQUIRED"
 ```
 
 **Ersetze:**
 - `u123456789_dbuser` → dein Username
 - `DeinPasswort` → dein DB-Passwort
-- `u123456789_trezo_crm` → dein Datenbankname
+- `u123456789_11f_crm` → dein Datenbankname
 
 ### Schritt 5: Lokal testen
 
@@ -87,13 +87,13 @@ git init
 git add .
 
 # Commit erstellen
-git commit -m "Initial commit: Trezo CRM ready for deployment"
+git commit -m "Initial commit: 11F OS CRM ready for deployment"
 ```
 
 ### Schritt 2: GitHub Repository erstellen
 
 1. Gehe zu [github.com](https://github.com/new)
-2. Repository Name: `trezo-crm` (oder beliebig)
+2. Repository Name: `11f-crm` (oder beliebig)
 3. **WICHTIG:** Setze auf **Private** wenn Template-Lizenz es erfordert
 4. Klicke **Create repository**
 
@@ -101,7 +101,7 @@ git commit -m "Initial commit: Trezo CRM ready for deployment"
 
 ```bash
 # Repository verknüpfen
-git remote add origin https://github.com/DEIN-USERNAME/trezo-crm.git
+git remote add origin https://github.com/DEIN-USERNAME/11f-crm.git
 
 # Branch umbenennen
 git branch -M main
@@ -124,14 +124,14 @@ Vercel ist perfekt für Next.js und kostenlos für Hobby-Projekte.
 
 #### 2. Projekt importieren
 - Klicke **Add New** → **Project**
-- Wähle dein `trezo-crm` Repository
+- Wähle dein `11f-crm` Repository
 - Klicke **Import**
 
 #### 3. Environment Variables setzen
 In den Project Settings:
 
 ```env
-DATABASE_URL=mysql://u123456789_dbuser:password@127.0.0.1:3306/u123456789_trezo_crm?ssl-mode=REQUIRED
+DATABASE_URL=mysql://u123456789_dbuser:password@127.0.0.1:3306/u123456789_11f_crm?ssl-mode=REQUIRED
 NEXT_PUBLIC_APP_URL=https://dein-projekt.vercel.app
 ```
 
@@ -189,8 +189,8 @@ ssh u123456789@your-domain.com
 
 ```bash
 cd domains/your-domain.com/public_html
-git clone https://github.com/DEIN-USERNAME/trezo-crm.git
-cd trezo-crm/react-nextjs-tailwindcss
+git clone https://github.com/DEIN-USERNAME/11f-crm.git
+cd 11f-crm/react-nextjs-tailwindcss
 ```
 
 #### 4. Dependencies installieren
@@ -207,7 +207,7 @@ nano .env
 
 Füge ein:
 ```env
-DATABASE_URL="mysql://u123456789_dbuser:password@127.0.0.1:3306/u123456789_trezo_crm"
+DATABASE_URL="mysql://u123456789_dbuser:password@127.0.0.1:3306/u123456789_11f_crm"
 NEXT_PUBLIC_APP_URL=https://your-domain.com
 NODE_ENV=production
 ```
@@ -235,7 +235,7 @@ Damit die App dauerhaft läuft:
 
 ```bash
 npm install -g pm2
-pm2 start npm --name "trezo-crm" -- start
+pm2 start npm --name "11f-crm" -- start
 pm2 save
 pm2 startup
 ```
@@ -287,7 +287,7 @@ pm2 startup
 
 ## 🎉 Fertig!
 
-Deine Trezo CRM App sollte jetzt live sein:
+Deine 11F OS CRM App sollte jetzt live sein:
 
 - **Frontend:** `https://dein-projekt.vercel.app/os`
 - **Datenbank:** Hostinger MySQL
