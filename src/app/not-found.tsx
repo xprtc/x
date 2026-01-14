@@ -25,7 +25,7 @@ export default function NotFound() {
                 safely.
               </p>
               <Link
-                href="/dashboard/ecommerce/"
+                href="/"
                 className="inline-block font-medium rounded-md md:text-md mt-[2px] md:mt-[10px] py-[12px] px-[25px] text-white bg-primary-500 transition-all hover:bg-primary-400"
               >
                 Back to Home
