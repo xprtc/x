@@ -9,15 +9,21 @@ const Footer: React.FC = () => {
 
       <footer className="bg-white dark:bg-[#0c1427] rounded-t-md px-[20px] md:px-[25px] py-[15px] md:py-[20px] text-center">
         <p>
-          © 11F by{" "}
+          © 11F OS (Operating System) |{" "}
           <a
-            href="https://exoertico.com"
+            href="https://11f.uk"
             target="_blank"
             className="text-primary-500 transition-all hover:underline"
           >
-            exoertico.com
+            11f.uk
           </a>
-          {" "}| Rastoder IT Consulting
+          {" "}|{" "}
+          <a
+            href="mailto:s@11f.uk"
+            className="text-primary-500 transition-all hover:underline"
+          >
+            s@11f.uk
+          </a>
         </p>
       </footer>
     </>

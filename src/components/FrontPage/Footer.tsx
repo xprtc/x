@@ -194,15 +194,21 @@ const Footer: React.FC = () => {
         <div className="py-[15px] md:py-[20px] mt-[60px] md:mt-[80px] lg:mt-[100px] bg-white dark:bg-[#0c1427] text-center">
           <div className="container 2xl:max-w-[1320px] mx-auto px-[12px]">
             <p className="leading-[1.6]">
-              © 11F by{" "}
+              © 11F OS (Operating System) |{" "}
               <a
-                href="https://exoertico.com"
+                href="https://11f.uk"
                 target="_blank"
                 className="text-primary-500 transition-all hover:underline"
               >
-                exoertico.com
+                11f.uk
               </a>
-              {" "}| Rastoder IT Consulting
+              {" "}|{" "}
+              <a
+                href="mailto:s@11f.uk"
+                className="text-primary-500 transition-all hover:underline"
+              >
+                s@11f.uk
+              </a>
             </p>
           </div>
         </div>
