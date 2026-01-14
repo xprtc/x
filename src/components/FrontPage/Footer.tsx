@@ -198,6 +198,7 @@ const Footer: React.FC = () => {
               <a
                 href="https://11f.uk"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-primary-500 transition-all hover:underline"
               >
                 11f.uk
