@@ -32,9 +32,25 @@ const SettingsForm: React.FC = () => {
     setCoverPhoto(null);
   };
 
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const handleCancel = () => {
+    if (formRef.current) formRef.current.reset();
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    const formData = new FormData(formRef.current);
+    const payload = Object.fromEntries(formData.entries());
+    console.log("Social settings submit:", payload);
+    // TODO: persist via API
+    alert("Settings saved (demo)");
+  };
+
   return (
     <>
-      <form>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div className="xl:grid xl:grid-cols-5 2xl:grid-cols-3 gap-[25px]">
           <div className="xl:col-span-3 2xl:col-span-2">
             <div className="trezo-card bg-white dark:bg-[#0c1427] mb-[25px] p-[20px] md:p-[25px] rounded-md">
@@ -397,13 +413,14 @@ const SettingsForm: React.FC = () => {
                 <div className="mt-[20px] sm:mt-[25px]">
                   <button
                     type="button"
+                    onClick={handleCancel}
                     className="font-medium inline-block transition-all rounded-md 2xl:text-md ltr:mr-[15px] rtl:ml-[15px] py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-danger-500 text-white hover:bg-danger-400"
                   >
                     Cancel
                   </button>
 
                   <button
-                    type="button"
+                    type="submit"
                     className="font-medium inline-block transition-all rounded-md 2xl:text-md py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-primary-500 text-white hover:bg-primary-400"
                   >
                     <span className="inline-block relative ltr:pl-[29px] rtl:pr-[29px]">

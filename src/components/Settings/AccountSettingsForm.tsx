@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image"; 
 
 const AccountSettingsForm: React.FC = () => {
@@ -18,9 +18,25 @@ const AccountSettingsForm: React.FC = () => {
     setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
   };
 
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const handleCancel = () => {
+    if (formRef.current) formRef.current.reset();
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    const formData = new FormData(formRef.current);
+    const payload = Object.fromEntries(formData.entries());
+    console.log("Account settings submit:", payload);
+    // TODO: call API to persist settings
+    alert("Profile updated (demo)");
+  };
+
   return (
     <>
-      <form>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <h5 className="!text-lg !mb-[6px]">Profile</h5>
         <p className="mb-[20px] md:mb-[25px]">
           Update your photo and personal details here.
@@ -284,26 +300,27 @@ const AccountSettingsForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-[20px] md:mt-[25px]">
-          <button
-            type="button"
-            className="font-medium inline-block transition-all rounded-md md:text-md ltr:mr-[15px] rtl:ml-[15px] py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-danger-500 text-white hover:bg-danger-400"
-          >
-            Cancel
-          </button>
+          <div className="mt-[20px] md:mt-[25px]">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="font-medium inline-block transition-all rounded-md md:text-md ltr:mr-[15px] rtl:ml-[15px] py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-danger-500 text-white hover:bg-danger-400"
+            >
+              Cancel
+            </button>
 
-          <button
-            type="button"
-            className="font-medium inline-block transition-all rounded-md md:text-md py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-primary-500 text-white hover:bg-primary-400"
-          >
-            <span className="inline-block relative ltr:pl-[29px] rtl:pr-[29px]">
-              <i className="material-symbols-outlined ltr:left-0 rtl:right-0 absolute top-1/2 -translate-y-1/2">
-                check
-              </i>
-              Update Profile
-            </span>
-          </button>
-        </div>
+            <button
+              type="submit"
+              className="font-medium inline-block transition-all rounded-md md:text-md py-[10px] md:py-[12px] px-[20px] md:px-[22px] bg-primary-500 text-white hover:bg-primary-400"
+            >
+              <span className="inline-block relative ltr:pl-[29px] rtl:pr-[29px]">
+                <i className="material-symbols-outlined ltr:left-0 rtl:right-0 absolute top-1/2 -translate-y-1/2">
+                  check
+                </i>
+                Update Profile
+              </span>
+            </button>
+          </div>
       </form>
     </>
   );
