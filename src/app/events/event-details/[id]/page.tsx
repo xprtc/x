@@ -1,12 +1,11 @@
-import PropertyDetailsContent from "@/components/RealEstateAgent/PropertyDetailsContent";
-import Reviews from "@/components/RealEstateAgent/Reviews";
+import EventDetailsContent from "@/components/Events/EventDetailsContent";
 import Link from "next/link";
 
-export default function Page() {
+export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <div className="mb-[25px] md:flex items-center justify-between">
-        <h5 className="!mb-0">Property Details</h5>
+        <h5 className="!mb-0">Event Details</h5>
 
         <ol className="breadcrumb mt-[12px] md:mt-0">
           <li className="breadcrumb-item inline-block relative text-sm mx-[11px] ltr:first:ml-0 rtl:first:mr-0 ltr:last:mr-0 rtl:last:ml-0">
@@ -22,18 +21,18 @@ export default function Page() {
           </li>
 
           <li className="breadcrumb-item inline-block relative text-sm mx-[11px] ltr:first:ml-0 rtl:first:mr-0 ltr:last:mr-0 rtl:last:ml-0">
-            Real Estate Agent
+            <Link href="/events/events-list" className="transition-all hover:text-primary-500">
+              Events
+            </Link>
           </li>
 
           <li className="breadcrumb-item inline-block relative text-sm mx-[11px] ltr:first:ml-0 rtl:first:mr-0 ltr:last:mr-0 rtl:last:ml-0">
-            Property Details
+            Event Details
           </li>
         </ol>
       </div>
 
-      <PropertyDetailsContent />
-
-      <Reviews />
+      <EventDetailsContent />
     </>
   );
 }

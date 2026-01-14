@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Event {
   id: string;
@@ -225,6 +226,7 @@ const statusColors: Record<string, string> = {
 };
 
 const EventsListTable: React.FC = () => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
@@ -355,6 +357,7 @@ const EventsListTable: React.FC = () => {
                         <div className="relative group">
                           <button
                             type="button"
+                            onClick={() => router.push(`/events/event-details/${event.id}`)}
                             className="text-primary-500 leading-none"
                           >
                             <i className="material-symbols-outlined !text-md">
@@ -373,6 +376,7 @@ const EventsListTable: React.FC = () => {
                         <div className="relative group">
                           <button
                             type="button"
+                            onClick={() => router.push(`/events/edit-an-event`)}
                             className="text-gray-500 leading-none"
                           >
                             <i className="material-symbols-outlined !text-md">
